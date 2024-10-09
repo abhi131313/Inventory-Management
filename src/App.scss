@@ -1,0 +1,50 @@
+body {
+  background-color: #121212;
+  color: #ecf0f1;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+      margin: 0;
+      color: white;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+
+      .logout-button {
+        background: none;
+        border: none;
+        color: #ecf0f1;
+        font-size: 24px;
+        cursor: pointer;
+        margin-left: 20px;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #e74c3c;
+        }
+      }
+    }
+  }
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  color: #ecf0f1;
+}
