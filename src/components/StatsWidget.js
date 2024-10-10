@@ -20,32 +20,18 @@ function StatsWidget() {
   }
 
   const totalProducts = products.length;
-
-  let totalStoreValue = 0;
-  products.forEach((product, index) => {
-    const price = parseFloat(product.price);
-    const quantity = parseInt(product.quantity);
-
-    if (isNaN(price) || isNaN(quantity)) {
-      console.error(
-        `Invalid price or quantity for product at index ${index}:`,
-        product
-      );
-    } else {
-      const productValue = price * quantity;
-      totalStoreValue += productValue;
-      console.log(
-        `Product ${index}: Price=${price}, Quantity=${quantity}, Value=${productValue}`
-      );
-    }
-  });
-
-  console.log("Final Total Store Value:", totalStoreValue);
-
+  const totalStoreValue = products.reduce((sum, product) => {
+    const price = parseFloat(product.price) || 0;
+    const quantity = parseInt(product.quantity) || 0;
+    return sum + price * quantity;
+  }, 1940);
   const outOfStock = products.filter(
     (product) => parseInt(product.quantity) === 0
   ).length;
   const categories = new Set(products.map((product) => product.category)).size;
+
+  console.log("Products:", products); // Add this line for debugging
+  console.log("Total Store Value:", totalStoreValue); // Add this line for debugging
 
   return (
     <div className="stats-widget">
