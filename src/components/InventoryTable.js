@@ -55,7 +55,7 @@ function InventoryTable() {
                   disabled={!isAdmin}
                   className={!isAdmin ? "user-view" : "disable-btn"}
                 >
-                  {product.disabled ? <FaEye /> : <FaEyeSlash />}
+                  {product.disabled ? <FaEyeSlash /> : <FaEye />}
                 </button>
                 <button
                   onClick={() => handleDelete(product.id)}
